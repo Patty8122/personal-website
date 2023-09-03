@@ -11,20 +11,22 @@ const Center = () => {
             <div className="row align-items-center justify-content-center">
 
                 <div className="col-sm-6 order-last ">
-                    <h1> Tidy up your thoughts</h1>
-                    <h5>in a conversation with our AI therapist</h5>
+                    <h1> Hi, I'm Divya!</h1>
+                    <h5>I am passionate about building software products</h5>
+                    <h5>efficient in performance and fun!</h5>
+
                     <div className="row col-9">
                         {/* <div className="col-6">
                             <button type="button" className="btn btn-secondary justify-content-left ">Chat Now</button>
                         </div> */}
                         <div className="col-6"> 
-                            <button type="button" className="btn btn-secondary align-items-center mt-4">Get Started</button>
+                            <button type="button" className="btn btn-secondary align-items-center mt-4">Resume</button>
                         </div>
                     </div>
 
                     </div>
                     <div className="col-sm-5 order-first">
-                        <img src="/images/hero_img.png" alt="" className={styles.imgContained}/>
+                        <img src="/images/me.webp" alt="" className={styles.imgContained}/>
                     </div>
                 </div>
 
