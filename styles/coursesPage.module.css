@@ -1,0 +1,13 @@
+.featureImages{
+  padding: 5px 25px 5px 25px;
+ width : 120px;
+  /* height: 120px; */
+/* max-height:100%;
+*/
+height: auto;
+
+}
+
+.listContent{
+    list-style-type: square;
+}
