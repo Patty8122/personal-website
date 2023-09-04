@@ -11,10 +11,7 @@ const landing_page_display = () => {
 <div className="container-fluid m-0 p-0">
             <Nav />
             <Center />
-
             <Features />
-            
-        <h1>hello</h1>
         </div>
         </>
     )

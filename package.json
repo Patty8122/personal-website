@@ -1,7 +1,7 @@
 {
   "homepage": "https://agile-beyond-50944-28ae32cac84a.herokuapp.com/",
   "private": true,
-  "scripts": {  
+  "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start -p $PORT"
@@ -16,7 +16,8 @@
     "next-auth": "^4.22.1",
     "openai": "^3.2.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-modal": "^3.16.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",

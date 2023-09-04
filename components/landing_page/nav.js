@@ -15,10 +15,9 @@ const Nav = (userdata, signInOut) => {
             <div className={styles.navbarCustom}>
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm p-0 m-0">
                     <div className="container-fluid" justify-content="space-between">
-                        <a href="#" className="navbar-brand">
+                    <Link className="navbar-brand" href={{ pathname: '/landingPage', query: userdata }}>
                             <Image src="/images/logo_white.png" width="216" height="46" alt="" className="d-inline-block align-middle mr-2" />
-                        </a>
-
+                        </Link>
 
                    </div>
                 </nav>
@@ -31,17 +30,11 @@ const Nav = (userdata, signInOut) => {
             <div className={styles.navbarCustom}>
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm p-0 m-0">
                     <div className="container-fluid" justify-content="space-between">
-                        <a href="#" className="navbar-brand">
-                            <Image src="/images/logo_white.png" width="216" height="46" alt="" className="d-inline-block align-middle mr-2" />
-                        </a>
-                        {/* <button className="btn btn-outline-light justify-content-end" type="button" onClick={() => {
-                            signInOut();
-                        }}>
-                            Sign inout
-                        
-                        </button> */}
-                            <Dropdown userdata={userdata} />
-
+                    <Link  className="navbar-brand" href={{ pathname: '/landingPage', query: userdata }}>
+                            <Image src="/images/me.webp" width="60" height="20" alt="" className="d-inline-block align-middle mr-2" />
+                            Divya Pattisapu
+                        </Link>
+                        <Dropdown userdata={userdata} />
 
                     </div>
                 </nav>

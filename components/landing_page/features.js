@@ -27,8 +27,8 @@ const Features = (userdata) => {
                                     </div>
                                 </div>
                                 <div className="text-center">
-                                <Link className="btn btn-primary"
-                                    href={{ pathname: '/coursesPage', query: userdata}}
+                                    <Link className="btn btn-primary"
+                                        href={{ pathname: '/coursesPage', query: userdata }}
                                     > My Coursework </Link>
                                 </div>
                             </div>
@@ -52,8 +52,8 @@ const Features = (userdata) => {
                                 {/* <a href="" className="btn btn-primary">Create AI checklists</a> */}
                                 <div className="text-center">
                                     <Link className="btn btn-primary"
-                                    href={{ pathname: '/checklistPage', query: userdata}}
-                                    > AI checklists </Link>
+                                        href={{ pathname: '/experiencePage', query: userdata }}
+                                    > Experience </Link>
                                 </div>
                             </div>
                         </div>
@@ -74,7 +74,9 @@ const Features = (userdata) => {
                                     </div>
                                 </div>
                                 <div className="text-center">
-                                    <a href="#" className="btn btn-primary">Web Projects</a>
+                                <Link className="btn btn-primary"
+                                        href={{ pathname: '/mlProjectsPage', query: userdata }}
+                                    > Machine Learning Projects </Link>
                                 </div>
                             </div>
                         </div>
@@ -104,7 +106,7 @@ const Features = (userdata) => {
                         <div className="card white h-100">
                             <div className="card-body">
                                 <div className="text-center">
-                                    <h7 className="card-title justify-content-center">AI checklist App</h7>
+                                    {/* <h7 className="card-title justify-content-center">AI checklist App</h7> */}
                                 </div>
                                 {/* <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 <a href="#" className="btn btn-primary">Go somewhere</a> */}
@@ -116,7 +118,7 @@ const Features = (userdata) => {
                                     </div>
                                 </div>
                                 <div className="text-center">
-                                    <a href="#" className="btn btn-primary">Fill today</a>
+                                    <a href="#" className="btn btn-primary">High Performance Computing</a>
                                 </div>
                             </div>
                         </div>
