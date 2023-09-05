@@ -13,7 +13,6 @@ import { set } from "mongoose";
 import LoadingAnimation from "../components/loading";
 
 
-const domain_name = "https://agile-beyond-50944-28ae32cac84a.herokuapp.com"
 
 const ChecklistPage = (({ checklist_names_ }) => {
 
@@ -118,7 +117,7 @@ const ChecklistPage = (({ checklist_names_ }) => {
             })
         );
 
-        await fetch(domain_name + '/api/checklist/deleteTask', {
+        await fetch('/api/checklist/deleteTask', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
@@ -224,7 +223,7 @@ const ChecklistPage = (({ checklist_names_ }) => {
             // Trigger the server to fetch the updated checklists again
             // await fetch('/api/checklist?refresh=true');
             try {
-                const res = await fetch(domain_name + '/api/checklist', {
+                const res = await fetch('/api/checklist', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -328,7 +327,7 @@ export async function getServerSideProps(context) {
             console.log("LINE 175 refresh: ", req.query.refresh);
             return { props: {} }; // Return an empty object as we're using server-sent events for response
         } else {
-            const res = await fetch(domain_name + '/api/checklist', {
+            const res = await fetch('http://localhost:3000/api/checklist', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -389,7 +388,7 @@ async function fetchUpdatedChecklists(user_email) {
     await connectDB();
 
     try {
-        const res = await fetch(domain_name + '/api/checklist', {
+        const res = await fetch('http://localhost:3000/api/checklist', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
