@@ -29,11 +29,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/landingPage.js"
-    ],
-    "/mlProjectsPage": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/mlProjectsPage.js"
     ]
   },
   "ampFirstPages": []

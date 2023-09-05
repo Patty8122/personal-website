@@ -208,7 +208,7 @@ const ChecklistPage = (({ checklist_names_ }) => {
         }
 
         // Call the API to add the new checklist
-        const res = await fetch(domain_name + '/api/checklist', {
+        const res = await fetch('/api/checklist', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',

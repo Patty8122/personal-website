@@ -15,8 +15,8 @@ import GoogleProvider from 'next-auth/providers/google';
             jwt: true,  
         },
         jwt: {
-            // secret: process.env.JWT_SECRET,
-            secret: 'doziyrgsueb',
+            secret: process.env.JWT_SECRET,
+            // secret: 'doziyrgsueb',
         },
     };
 

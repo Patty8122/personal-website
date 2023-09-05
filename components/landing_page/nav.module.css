@@ -1,5 +1,6 @@
 .customLi {
     padding-right: 4.5 em;
+    padding-bottom: 1.5em;
 }
 
 .navbarCustom {
@@ -21,4 +22,5 @@
   animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
   padding-top: 0px;
   padding-bottom: 0px;
+  
 }

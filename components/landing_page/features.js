@@ -23,7 +23,7 @@ const Features = (userdata) => {
                                 </div>
                                 <div className="row justify-content-center">
                                     <div className="col-9 p-3 ">
-                                        <img src="/images/features1.png" alt="" className={styles.featureImages} />
+                                        <img src="/images/student.png" alt="" className={styles.featureImages} />
                                     </div>
                                 </div>
                                 <div className="text-center">
@@ -45,7 +45,7 @@ const Features = (userdata) => {
                                 <div className="row justify-content-center">
                                     <div className="col-9 p-3 ">
                                         <div className="">
-                                            <img src="/images/features2.png" alt="" className={styles.featureImages} />
+                                            <img src="/images/experience.png" alt="" className={styles.featureImages} />
                                         </div>
                                     </div>
                                 </div>
@@ -61,15 +61,10 @@ const Features = (userdata) => {
                     <div className="col-sm-2">
                         <div className="card white h-100">
                             <div className="card-body">
-                                <div className="text-center">
-                                    {/* <h7 className="card-title">Web Development Projects</h7> */}
-                                </div>
-                                {/* <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" className="btn btn-primary">Go somewhere</a> */}
                                 <div className="row justify-content-center">
                                     <div className="col-9 p-3 ">
                                         <div className="">
-                                            <img src="/images/features3.png" alt="" className={styles.featureImages} />
+                                            <img src="/images/machine-learning.png" alt="" className={styles.featureImages} />
                                         </div>
                                     </div>
                                 </div>
@@ -84,20 +79,17 @@ const Features = (userdata) => {
                     <div className="col-sm-2">
                         <div className="card white h-100">
                             <div className="card-body">
-                                <div className="text-center">
-                                    {/* <h7 className="card-title">Machine Learning Projects</h7> */}
-                                </div>
-                                {/* <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" className="btn btn-primary">Go somewhere</a> */}
                                 <div className="row justify-content-center">
                                     <div className="col-9 p-3 ">
                                         <div className="">
-                                            <img src="/images/features4.png" alt="" className={styles.featureImages} />
+                                            <img src="/images/mobile.png" alt="" className={styles.featureImages} />
                                         </div>
                                     </div>
                                 </div>
                                 <div className="text-center">
-                                    <a href="#" className="btn btn-primary">Machine Learning Projects</a>
+                                <Link className="btn btn-primary"
+                                        href={{ pathname: '/webProjectsPage', query: userdata }}
+                                    > Web Development Projects </Link>
                                 </div>
                             </div>
                         </div>
@@ -113,12 +105,12 @@ const Features = (userdata) => {
                                 <div className="row justify-content-center">
                                     <div className="col-9 p-3 ">
                                         <div className="">
-                                            <img src="/images/features5.png" alt="" className={styles.featureImages} />
+                                            <img src="/images/high-performance.png" alt="" className={styles.featureImages} />
                                         </div>
                                     </div>
                                 </div>
                                 <div className="text-center">
-                                    <a href="#" className="btn btn-primary">High Performance Computing</a>
+                                    <a href="#" className="btn btn-primary">Embedded System Projects</a>
                                 </div>
                             </div>
                         </div>
