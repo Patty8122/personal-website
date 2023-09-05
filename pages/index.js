@@ -91,11 +91,9 @@ import { useSession, signIn, signOut } from 'next-auth/react';
     //     });
     // }, []); // Empty dependency array to run the effect only once
 
-const domain_name = "https://agile-beyond-50944-28ae32cac84a.herokuapp.com"
-
 const userSend = async (user) => {
 
-    const res = await fetch(domain_name + '/api/auth', {
+    const res = await fetch('/api/auth', {
         method: 'POST',
         headers: {
             'Content-type': 'application/json',
