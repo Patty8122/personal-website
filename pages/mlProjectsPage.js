@@ -1,100 +1,77 @@
 import Nav from '../components/landing_page/nav';
-import styles from '../styles/mlProjectsPage.module.css';
+import styles from '../styles/coursesPage.module.css';
+import React, { Component } from 'react';
 
-const course_page_display = () => {
-    return (
+class mlProjectsPageDisplay extends Component {
+    render() {
+      return (
         <div className="container-fluid pt-5 pb-0 mb-3 mt-3">
-            <Nav />
-            <h1 className="text-center">Experience</h1>
-            <div className="row">
-                <div className="col-sm-12 col-md-12 col-lg-6 p-2">
-                    <div className="card white h-100">
-                        <div className="card-body">
-                            <div className="row align-items-center">
-                                <div className="col-3">
-                                    <img src="/images/aws.png" alt="" className={styles.featureImages} />
-                                </div>
-                                <div className="col-9">
-                                    <div className="text-center">
-                                        <h6 className="card-title justify-content-center">MasterCard</h6>
-                                    </div>
-                                    <p className="card-text">Associate Consultant</p>
-                                    <p className="card-text">July 2021 - August 2022</p>
-                                    <p className="card-text">I maintained the execution code of the Ad Insight advertising product across multiple countries, resulting in annual revenues of around $2 million. My role encompassed customer segmentation using machine learning, web scraping automation, sales pitch development, and cross-selling identification. I also automated quality inspections, improving operational efficiency. I earned six 'Recognizing You' Awards for my dedication and expertise. I specialized in Big Data Analytics, utilizing Apache Hadoop, Hive, Impala, Spark, and SQL. </p>
-                                    <img src="/images/cloud.png" alt="" className={styles.featureImages} />
-
-                                </div>
-                            </div>
+          <Nav />
+          {/* add small empty space */}
+          <h1 className="text-center">Machine Learning Projects</h1>
+          <div className="row justify-content-center">
+            {courses.map((course, index) => (
+              <div key={index} className="col-sm-12 col-md-12 col-lg-6 p-2">
+                <div className="card white h-100">
+                  <div className="card-body">
+                    <div className="row justify-content-center align-items-center">
+                      {/* <img src={course.image} alt="" className={styles.featureImages} /> */}
+                      <div className="col-12">
+                        <div className="text-center">
+                          <h6 className="card-title justify-content-center">{course.title}</h6>
                         </div>
+                        <ul className={styles.listContent + " pl-lg-7"}>
+                          {course.details.map((detail, idx) => (
+                            <li key={idx}>{detail}</li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
+                  </div>
                 </div>
-
-
-                <div className="col-sm-12 col-md-12 col-lg-6 p-2">
-                    <div className="card white h-100">
-                        <div className="card-body">
-                            <div className="row align-items-center">
-                                <div className="col-3">
-                                    <img src="/images/aws.png" alt="" className={styles.featureImages} />
-                                </div>
-                                <div className="col-9">
-                                    <div className="text-center">
-                                        <h6 className="card-title justify-content-center">University of Chicago Professional Education</h6>
-                                    </div>
-                                    <p className="card-text">Data Analytics Intern</p>
-                                    <p className="card-text">Feb 2023 - Present</p>
-                                    <p className="card-text">My role was to enhance our organization's data-driven decision-making processes. For this, I automated customer segmentation for applicants who declined offers by implementing a KModes model, ensuring our outreach efforts were more targeted and effective. Additionally, I developed a user-friendly GUI that could be customized to cater to the unique needs of each program. On the enrollment front, I ideated and programmed a seamless data import pipeline using the Destiny API in Python, streamlining the student enrollment process. To gauge the effectiveness of our campaigns, I automated the generation of performance reports on LinkedIn, Google, and Facebook using their respective APIs. Furthermore, I took charge of creating, organizing, and optimizing dashboards on Tableau Server, enabling our team to monitor key metrics effortlessly, and I handled custom student data analytics requests efficiently. My work also involved using Decision Tree Classifier and Logistic Classifier models to identify the factors contributing to accepted, denied, or declined applications, helping us refine our admissions strategies.  </p>
-                                    <img src="/images/cloud.png" alt="" className={styles.featureImages} />
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="col-sm-12 col-md-12 col-lg-6 p-2">
-                    <div className="card white h-100">
-                        <div className="card-body">
-                            <div className="row align-items-center">
-                                <div className="col-3">
-                                    <img src="/images/aws.png" alt="" className={styles.featureImages} />
-                                </div>
-                                <div className="col-9">
-                                    <div className="text-center">
-                                        <h6 className="card-title justify-content-center">KLA</h6>
-                                    </div>
-                                    <p className="card-text">Application Engineering Intern</p>
-                                    {/* <p className="card-text">May 2019 - Jul 2019</p> */}
-                                    <p className="card-text">As an Application Engineering Intern at KLA, my project introduced an attribute selection technique (Earth Mover’s Distance) using correlation analysis, to the ML pipeline, enhancing production error detection.  </p>
-                                    <img src="/images/cloud.png" alt="" className={styles.featureImages} />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="col-sm-12 col-md-12 col-lg-6 p-2">
-                    <div className="card white h-100">
-                        <div className="card-body">
-                            <div className="row align-items-center">
-                                <div className="col-3">
-                                    <img src="/images/aws.png" alt="" className={styles.featureImages} />
-                                </div>
-                                <div className="col-9">
-                                        <h6 className="text-center card-title justify-content-center">National Center for Aerospace Innovation and Research, India</h6>
-                                    <p className="card-text text-left">Application Engineering Intern</p>
-                                    {/* <p className="card-text text-right">May 2018 - Jul 2018</p> */}
-                                    <p className="card-text">I designed an IoT emergency stop system. This system wirelessly controlled lathe and milling machines based on real-time data from current and vibration sensors, ensuring safety during power fluctuations. I also honed skills in database management, server-side scripting, network programming, LAMP stack, and microprocessor programming. </p>
-                                    <img src="/images/cloud.png" alt="" className={styles.featureImages} />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+              </div>
+            ))}
+          </div>
         </div>
-    )
-}
+      );
+    }
+  }
+  
+  export default mlProjectsPageDisplay;
 
-export default course_page_display;
+  const courses = [
+    {
+      title: 'Named Entity Recognition Tagging - Geoffrey Hinton Fellow (NLP, Univ AI)',
+      image: '/images/aws.jpeg',
+      details: [
+        'To tag the scientific terms in an astrophysics dataset called WIESP2022, I used a deep BiLSTM model to perform Named Entity Recognition for authors, papers, publications, conferences, etc. I used the Tensorflow framework to implement the model, with the Adam optimizer and the CrossEntropyLoss function. I achieved an accuracy of 97% on the test set when compared to 95% on a simpleRNN network.',
+        'As part of this fellowship, I learned what Natural Language Processing and Language Modeling are, as well as how to use the LSTMs using Tensorflow and transformers using HuggingFace library to fine-tune a pre-trained BERT model for NER tagging.',
+        'I also learned about the Transformer architecture, which is a neural network architecture that uses attention mechanisms to process sequences of data. The Transformer architecture is used in a variety of natural language processing (NLP) tasks, including machine translation, text summarization, and question answering.',],
+    },
+    {
+      title: "Deception Detection Using Machine Learning - Master's Dissertation, IIT Bombay",
+      image: '/images/webdev.jpg',
+      details: [
+        'My objective was to build a model that identifies the truthfulness of a candidate in a job interview using their video, audio and transcribed text data.',
+        'There is a dearth of non-native English speaker datasets and I wanted to make a deception corpus, consisting of equal lies and truths for different types of interview questions, direct and suggestive questions.',
+        'I conducted 30 interviews and created a corpus with TF-IDF, LIWC, POS, prosodic, acoustic, lexical & personality (Big Five) features extracted, best features selected using Ada-boost, extratree classifier & correlation methods',
+        'I used a variety of machine learning algorithms, including SVM, Random Forest, and XGBoost, to train the model.',
+        'Finally, I built a stacked LSTM model using Keras and achieved an accuracy of 64.7% which is greater than the average human lie detection - 57%.',
+        ],
+    },
+
+    {
+        title: 'Machine Learning Projects at the University of Chicago',
+        image: '/images/aws.jpeg',
+        details: [
+            'As part of the Machine Learning course, I coded algorithms for decision tree classifier, SVMs, logistic regression with gradient descent, boosting, CNNs from scratch',
+            'It helped me understand the math behind the algorithms and how to tune the hyperparameters to improve the accuracy of the model.',
+            'It also helped me understand the importance of feature engineering and how to select the best features for the model.',
+        ],
+    },
+
+
+
+];
+ 
+  

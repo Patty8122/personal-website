@@ -15,11 +15,6 @@
   ],
   "rootMainFiles": [],
   "pages": {
-    "/": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/index.js"
-    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
@@ -35,25 +30,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/checklistPage.js"
     ],
-    "/coursesPage": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/coursesPage.js"
-    ],
     "/landingPage": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/landingPage.js"
-    ],
-    "/mlProjectsPage": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/mlProjectsPage.js"
-    ],
-    "/webProjectsPage": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/webProjectsPage.js"
     ]
   },
   "ampFirstPages": []

@@ -31,7 +31,7 @@ const Nav = (userdata, signInOut) => {
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm p-0 m-0">
                     <div className="container-fluid" justify-content="space-between">
                     <Link  className="navbar-brand" href={{ pathname: '/landingPage', query: userdata }}>
-                            <Image src="/images/me.webp" width="60" height="20" alt="" className="d-inline-block align-middle mr-2" />
+                            <Image src="/images/easy3.png" width="60" height="20" alt="" className="d-inline-block align-middle mr-2" />
                             Divya Pattisapu
                         </Link>
                         <Dropdown userdata={userdata} />
