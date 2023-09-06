@@ -26,6 +26,8 @@ class ExperiencePageDisplay extends Component {
                           <li key={idx}>{detail}</li>
                         ))}
                       </ul>
+                      <img src={experience.image} alt="" className={styles.featureImages} />
+                      {experience.image2 && <img src={experience.image2} alt="" className={styles.featureImages} /> }
                     </div>
                   </div>
                   <div className="row justify-content-center align-items-center">
@@ -62,30 +64,29 @@ const experiences = [
     ],
   },
   {
-    title: 'University of Chicago Professional Education',
-    image: '/images/aws.jpeg',
+    title: 'Custom version of Slack messaging app',
+    image: '/images/slackclone.png',
     details: [
-      'Data Analytics Intern',
-      'Feb 2023 - Present',
-      'My role was to enhance our organization\'s data-driven decision-making processes. For this, I automated customer segmentation for applicants who declined offers by implementing a KModes model, ensuring our outreach efforts were more targeted and effective. Additionally, I developed a user-friendly GUI that could be customized to cater to the unique needs of each program. On the enrollment front, I ideated and programmed a seamless data import pipeline using the Destiny API in Python, streamlining the student enrollment process. To gauge the effectiveness of our campaigns, I automated the generation of performance reports on LinkedIn, Google, and Facebook using their respective APIs. Furthermore, I took charge of creating, organizing, and optimizing dashboards on Tableau Server, enabling our team to monitor key metrics effortlessly, and I handled custom student data analytics requests efficiently. My work also involved using Decision Tree Classifier and Logistic Classifier models to identify the factors contributing to accepted, denied, or declined applications, helping us refine our admissions strategies.',
+      'Please find the github repo for this project here: https://github.com/Patty8122/slack-clone',
+      'I used React.js to build a custom version of Slack.',
+      'For the backend, I used MySQL to store user data and messages and Flask to run the server.',
     ],
   },
   {
-    title: 'KLA',
-    image: '/images/aws.jpeg',
+    title: 'Watch Party App',
+    image: '/images/watchparty_landingpage.png',
+    image2: '/images/watchparty_chat.png',
     details: [
-      'Application Engineering Intern',
-      'May 2019 - Jul 2019',
-      'As an Application Engineering Intern at KLA, my project introduced an attribute selection technique (Earth Mover’s Distance) using correlation analysis, to the ML pipeline, enhancing production error detection.',
+      'Single page application that allows users to run a live chat in different rooms.',
+      'I used vanilla JavaScript, HTML, and CSS to build the front end.',
+      'I used Flask to run the server and MySQL to store user data and messages.',
     ],
   },
   {
-    title: 'National Center for Aerospace Innovation and Research, India',
-    image: '/images/aws.jpeg',
+    title: 'Content Management System using PHP',
+    image: '/images/webjournal.png',
     details: [
-      'Application Engineering Intern',
-      'May 2018 - Jul 2018',
-      'I designed an IoT emergency stop system. This system wirelessly controlled lathe and milling machines based on real-time data from current and vibration sensors, ensuring safety during power fluctuations. I also honed skills in database management, server-side scripting, network programming, LAMP stack, and microprocessor programming.',
+      'Made a simple content management system to make posts and add comments using PHP.',
     ],
   },
 ];

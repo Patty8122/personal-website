@@ -3,9 +3,9 @@ import React from "react";
 const Sidebar = () => {
 
     return (
-        <>
+        // <div className="container pt-5 pb-0 mb-3 mt-3 justify-content-stretch">
 
-            <Nav className="col-md-12 d-none d-md-block bg-light sidebar"
+            <Nav className="is-sticky"
                 activeKey="/home"
                 onSelect={selectedKey => alert(`selected ${selectedKey}`)}
             >
@@ -26,7 +26,7 @@ const Sidebar = () => {
                 </Nav.Item>
             </Nav>
 
-        </>
+        // </div>
     );
 };
 

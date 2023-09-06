@@ -267,15 +267,27 @@ const ChecklistPage = (({ checklist_names_ }) => {
                     ></div>
 
 
-            <div className="row">
-                <div className="col-sm-2 span-all">
+            <div className="row justify-content-stretch h-100">
+                {/* <div className="col-2 h-100 justify-content-stretch">
                     <RootLayout />
-                </div>
+                </div> */}
 
-                <div className="col-sm-10 span-all">
+                <div className="col-12 span-all">
+                    {session.status === "authenticated" && 
+                    <>
+                    <h4 className={styles.heading}>Enter a prompt to create a checklist. For example, type in "Travel abroad" </h4>
                     < input type="text" value={checklist_request} className={styles.searchBar} onChange={(e) => addChecklist(e.target.value)} />
-                    < button className="pl-0 pr-0 pt-1 pb-1 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-0 focus:ring-gray-300 font-medium rounded-md text-sm px-3 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 " onClick={() => submitChecklistRequest(checklist_request)}>Add Checklist</button>
+                    </>
+                    }
+                    < button className="pl-0 pr-0 pt-1 pb-1 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-0 focus:ring-gray-300 font-medium rounded-md text-sm px-3 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 " onClick={() => {
+                        submitChecklistRequest(checklist_request);
+                        setChecklistRequest('');
+                        }}>Add Checklist</button>
                     {/* <button onClick={fetchChecklist}>Fetch Checklist</button> */}
+                    <br />
+                    {session.status !== "authenticated" && 
+                    <h4 className={styles.heading + " ml-5 ml-sm-3 ml-md-4"}>Sign in to create and save custom checklists! </h4>}
+                    
 
                     <div className="container-fluid m-0 p-0">
                         <div className="row p-5 justify-content-left">

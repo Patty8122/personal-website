@@ -199,3 +199,20 @@
   transform: scale(0.1);
 
 }
+
+
+.maxed{
+  margin-right:0;
+  margin-left:0;
+  width:100%;
+}
+
+
+
+.rightPanel{
+  /* fixed */
+  position: fixed;
+  right: 0;
+  top: 10%;
+}
+

@@ -111,13 +111,15 @@ const Parent = ({ tabs, deleteTodo, fetchSubtaskList, expandTask }) => {
                                                                                         <div className="row justify-content-center p-0 m-0">
                                                                                             <div className="col-8">
                                                                                                 <div className="card-text">
+                                                                                                    <div className="row justify-content-center">
+                                                                                                    <div className="col-1 justify-content-center">
                                                                                                     <button className={styles.circle + " " + styles.plus}
                                                                                                         onClick={() => { expandTask(task, selectedTab._id, selectedTab.email); 
                                                                                                                             setLoading(true);
-                                                                                                        }}
-                                                                                                    ></button>
+                                                                                                        }}></button>
+                                                                                                    </div>
                                                                                                     {/* SUBTASK */}
-
+                                                                                                    <div className="col-11 justify-content-center">
                                                                                                     <p>{task}</p>
                                                                                                     {console.log("selectedTabsubtasks 2: ", selectedTabsubtasks)}
                                                                                                     {selectedTabsubtasks && selectedTabsubtasks.length > 0 && selectedTabsubtasks.map((subtask) => {
@@ -132,6 +134,8 @@ const Parent = ({ tabs, deleteTodo, fetchSubtaskList, expandTask }) => {
                                                                                                             )
                                                                                                         }
                                                                                                     })}
+                                                                                                    </div>
+                                                                                                    </div>
 
 
 
@@ -140,9 +144,10 @@ const Parent = ({ tabs, deleteTodo, fetchSubtaskList, expandTask }) => {
 
                                                                                             </div>
                                                                                             <div className="form-group mx-sm-3 mb-2 col-2">
-                                                                                                <form className="form-inline">
+                                                                                                {/* <form className="form-inline">
                                                                                                     <input type="text" className="form-control" placeholder={checklist.tasklist[task]} />
-                                                                                                </form>
+                                                                                                </form> */}
+                                                                                                <p>{checklist.tasklist[task]}</p>
                                                                                             </div>
 
                                                                                             <div className="col-1 justify-content-end">
