@@ -60,10 +60,13 @@
 
 
 .imgContained {
-    max-width: 70%;
+    max-width: 60%;
     float: right;
-    margin-right: 10%;
-    margin-bottom : 0;  
+    /* margin-right: 10%; */
+    margin-top: 0;
+    margin-bottom : 0; 
+    padding: 0; 
+
 
 }
 
@@ -145,6 +148,19 @@
         height: 50vh;
     }
 
+    .Resume{
+        /* center */
+        float: center;
+    }
+
+    .centerContent{
+        /* center */
+        justify-content: center;
+    }
+
+    .headers{
+        text-align: center;
+    }
 
 }
 

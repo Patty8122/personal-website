@@ -8,14 +8,14 @@ class CoursePageDisplay extends Component {
         <div className="container-fluid pt-5 pb-0 mb-3 mt-3">
           <Nav />
           {/* add small empty space */}
-          <h1 className="text-center">Courses</h1>
+          <h1 className="mt-4 text-center">Courses</h1>
           <div className="row justify-content-center">
             {courses.map((course, index) => (
               <div key={index} className="col-sm-12 col-md-12 col-lg-6 p-2">
                 <div className="card white h-100">
                   <div className="card-body">
                     <div className="row justify-content-center align-items-center">
-                      {/* <img src={course.image} alt="" className={styles.featureImages} /> */}
+                      {/* {course.image && <img src={course.image} alt="" className={styles.featureImages} />} */}
                       <div className="col-12">
                         <div className="text-center">
                           <h6 className="card-title justify-content-center">{course.title}</h6>
@@ -42,7 +42,7 @@ class CoursePageDisplay extends Component {
   const courses = [
     {
       title: 'Cloud Computing',
-      image: '/images/aws.jpeg',
+      image: '/images/aws.png',
       details: [
         'Cloud computing service models and economics',
         'Virtualization and Infrastructure-as-a-Service',

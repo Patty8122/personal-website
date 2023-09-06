@@ -110,7 +110,9 @@ const Features = (userdata) => {
                                     </div>
                                 </div>
                                 <div className="text-center">
-                                    <a href="#" className="btn btn-primary">Embedded System Projects</a>
+                                <Link className="btn btn-primary"
+                                        href={{ pathname: '/hpcProjectsPage', query: userdata }}
+                                    > Embedded Systems Projects </Link>
                                 </div>
                             </div>
                         </div>

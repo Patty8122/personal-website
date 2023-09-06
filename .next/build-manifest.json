@@ -25,20 +25,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/coursesPage": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/coursesPage.js"
-    ],
-    "/experiencePage": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/experiencePage.js"
-    ],
     "/landingPage": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/landingPage.js"
+    ],
+    "/mlProjectsPage": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/mlProjectsPage.js"
     ]
   },
   "ampFirstPages": []

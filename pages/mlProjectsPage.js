@@ -42,6 +42,16 @@ class mlProjectsPageDisplay extends Component {
 
   const courses = [
     {
+      title: 'Genomics Annotation Service - AWS Cloud Computing',
+      resource_name: 'Report',
+      // slides: '/assets/pdfs/hpc4.pdf',
+      details: [
+        'Developed a software-as-a-service genomics annotation application which allows free and premium users to upload their input files, check the status of their annotation jobs and retrieve job results/log files',
+        'Integrated the application with a Stripe payment system; Included a notification system to inform the users of their job completion',
+        'Implemented an archival process to transfer free users’ result files from S3 to Glacier after 5 min to save the storage cost incurred'
+      ]
+  },
+    {
       title: 'Named Entity Recognition Tagging - Geoffrey Hinton Fellow (NLP, Univ AI)',
       image: '/images/aws.jpeg',
       resource_name: 'Slides',
@@ -85,6 +95,8 @@ class mlProjectsPageDisplay extends Component {
             'It also helped me understand the importance of feature engineering and how to select the best features for the model.',
         ],
     },
+
+
 
 
 

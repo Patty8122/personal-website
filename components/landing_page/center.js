@@ -40,12 +40,12 @@ const Center = () => {
         <div className="container-fluid pt-5 pb-0 mb-3 mt-3">
             <div className="row align-items-center justify-content-center">
                 <div className="col-sm-6 order-last ">
-                    <h1> Hi, I'm Divya!</h1>
-                    <h5>I am passionate about building software products, efficient in performance and fun!</h5>
-                    <h5>Excited to attend Grace Hopper Celebration 2023 in Orlando :D</h5>
-                    <div className="row">
-                        <div className="col-6">
-                            <button type="button" className="btn btn-secondary align-items-center mt-4" onClick={() => setIsOpen(true)}>Check Out My Resume</button>
+                    <h1 className={styles.headers}> Hi, I'm Divya!</h1>
+                    <h5 className={styles.headers}>I am passionate about building software products, efficient in performance and fun!</h5>
+                    <h5 className={styles.headers}>Excited to attend Grace Hopper Celebration 2023 in Orlando :D</h5>
+                    <div className={"row " + styles.centerContent}>
+                        <div className="col-6 ">
+                            <button type="button" className={"btn btn-secondary  mt-4 " + styles.Resume} onClick={() => setIsOpen(true)}>Check Out My Resume</button>
                             <Modal styles={styles.customModalStyles} isOpen={isOpen} onRequestClose={() => setIsOpen(false)}>
                                 <div className={"row align-items-between "}>
                                     <div className="col-11">
