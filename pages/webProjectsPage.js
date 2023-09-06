@@ -10,7 +10,7 @@ class ExperiencePageDisplay extends Component {
       <div className="container-fluid pt-5 pb-0 mb-3 mt-3">
         <Nav />
         {/* add small empty space */}
-        <h1 className="text-center">Web Development Projects</h1>
+        <h1 className="mt-3 text-center">Web Development Projects</h1>
         <div className="row justify-content-center">
           {experiences.map((experience, index) => (
             <div key={index} className="col-sm-12 col-md-12 col-lg-6 p-2">
@@ -26,13 +26,14 @@ class ExperiencePageDisplay extends Component {
                           <li key={idx}>{detail}</li>
                         ))}
                       </ul>
+                      {experience.link && experience.link !== "" && <Link className="btn btn-primary" href={{ pathname: experience.link, query: this.props.query }}> Click Here To Visit Checklist Website </Link>}
+
                       <img src={experience.image} alt="" className={styles.featureImages} />
                       {experience.image2 && <img src={experience.image2} alt="" className={styles.featureImages} /> }
                     </div>
                   </div>
                   <div className="row justify-content-center align-items-center">
                     <div className="col-12">
-                    {experience.link && experience.link !== "" && <Link className="btn btn-primary" href={{ pathname: experience.link, query: this.props.query }}> Click Here! </Link>}
                     </div>
                   </div>
                 </div>
@@ -52,7 +53,7 @@ export default ExperiencePageDisplay;
 const experiences = [
   {
     title: 'AI Checklist Application',
-    image: '/images/checklist.jpeg',
+    image: '/images/AIchecklists.png',
     link: '/checklistPage',
     details: [
       'I worked on a project to create a checklist application that uses AI to help users create checklists.',
