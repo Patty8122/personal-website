@@ -9,7 +9,7 @@ const landing_page_display = () => {
         <>
 
 <div className="container-fluid m-0 p-0">
-            <Nav />
+            <Nav showDP={true}/>
             <Center />
             <Features />
         </div>

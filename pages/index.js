@@ -129,7 +129,7 @@ export default function Home() {
     if (status === 'authenticated') {
         return (
             <div>
-                <Nav data={data}/>
+                <Nav data={data} showSignin={true}/>
                 <Center />
                 <Features userdata={data}/>
             </div>

@@ -3,12 +3,14 @@ import styles from '../styles/coursesPage.module.css';
 import React, { Component } from 'react';
 
 class hpcProjectsPageDisplay extends Component {
+
     render() {
+      const showDP = true;
       return (
         <div className="container-fluid pt-5 pb-0 mb-3 mt-3">
-          <Nav />
+          <Nav showDP={showDP} />
           {/* add small empty space */}
-          <h1 className="mt-3 text-center">Machine Learning Projects</h1>
+          <h1 className="mt-3 text-center">High Performance Computing Projects</h1>
           <div className="row ">
             {courses.map((course, index) => (
               <div key={index} className="col-sm-12 col-md-12 col-lg-6 p-2">

@@ -6,7 +6,7 @@ class CoursePageDisplay extends Component {
     render() {
       return (
         <div className="container-fluid pt-5 pb-0 mb-3 mt-3">
-          <Nav />
+          <Nav Signin="true"/>
           {/* add small empty space */}
           <h1 className="mt-4 text-center">Courses</h1>
           <div className="row justify-content-center">
@@ -175,7 +175,7 @@ class CoursePageDisplay extends Component {
     },
 
     {
-        title: 'Parallel Programming',
+        title: 'Parallel Programming (Fall 2023)',
         image: '/images/aws.jpeg',
         details: [
             'Processes and threads',
