@@ -7,7 +7,7 @@ const Features = (userdata) => {
         <div className="">
             <div className="container-fluid bg-dark  m-0 p-0" >
                 <div className="row p-5 justify-content-center" >
-                    <div className="col-sm-2 ">
+                    <div className="col-sm-2 p-2">
                         <div className="card white h-100">
                             <div className="card-body">
                                 <div className="row justify-content-center">

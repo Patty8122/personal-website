@@ -25,6 +25,7 @@ const ChecklistPage = (({ checklist_names_ }) => {
     const [user_name, setUserName] = useState(null);
     const { data, status } = useSession();
     const [loading, setLoading] = useState(false);
+    
 
     useEffect(() => {
         if (checklist_names_.length > 0) {
@@ -44,6 +45,7 @@ const ChecklistPage = (({ checklist_names_ }) => {
             setUserName(session.data.user.name);
             // setChecklistRequest(checklist_names_);
             console.log("checklist_names_: ", checklist_names_);
+            fetchChecklist();
         }
     }, [session.status === "authenticated"]);
 
@@ -66,23 +68,23 @@ const ChecklistPage = (({ checklist_names_ }) => {
     //   }, [user_email]);
 
 
-    //   const fetchChecklist = async () => {
-    //     try {
-    //       const res = await fetch('/api/checklist', {
-    //         method: 'GET',
-    //         headers: {
-    //           'Content-Type': 'application/json',
-    //           email: user_email
-    //         }
-    //       });
-    //       const data = await res.json();
-    //     } catch (error) {
-    //         console.log(error);
-    //         }
-    //         // update the state of checklist_names
-    //         updateTabNames(data.check_list);
+      const fetchChecklist = async () => {
+        try {
+          const res = await fetch('/api/checklist', {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+              email: user_email
+            }
+          });
+          const data = await res.json();
+        } catch (error) {
+            console.log(error);
+            }
+            // update the state of checklist_names
+            updateTabNames(data.check_list);
 
-    //   };
+      };
 
 
     const addChecklist = async (checklist_request) => {

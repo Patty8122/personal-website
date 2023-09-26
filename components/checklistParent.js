@@ -9,7 +9,7 @@ import { useRef } from 'react';
 import Loading from "./loading";
 
 // 
-const Parent = ({ tabs, deleteTodo, fetchSubtaskList, expandTask }) => {
+const   Parent = ({ tabs, deleteTodo, fetchSubtaskList, expandTask }) => {
     console.log("tabs: ", tabs);
     const [selectedTab, setSelectedTab] = useState(tabs[0]);
     const [selectedTabsubtasks, setSelectedTabsubtasks] = useState([]);
