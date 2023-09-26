@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from 'react';
-import Nav from '../components/landing_page/nav';
+import Nav2 from '../components/landing_page/nav2';
 import styles from '../styles/utils.module.css';
 import RootLayout from "./layout";
 import Parent from "../components/checklistParent";
@@ -254,10 +254,10 @@ const ChecklistPage = (({ checklist_names_ }) => {
 
             {data && data.user && console.log("data.user: ", data.user.name)}
             {data && data.user &&
-            <Nav data={data}/>}
+            <Nav2 data={data}/>}
 
             {!data  && 
-            <Nav /> }
+            <Nav2 /> }
 
             {/* <iframe src="https://giphy.com/embed/3oEjI6SIIHBdRxXI40" width="480" height="480" frameBorder="0" className="giphy-embed" ></iframe> */}
             {/* <iframe src="https://giphy.com/embed/XEJ8bHp1N9i4OjgLwT" width="480" height="270"></iframe> */}

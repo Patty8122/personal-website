@@ -54,7 +54,7 @@ export default function Home() {
     if (status === 'authenticated') {
         return (
             <div>
-                <Nav userdata={data} showDP={true}/>
+                <Nav/>
                 <Center />
                 <Features userdata={data}/>
             </div>
@@ -63,7 +63,7 @@ export default function Home() {
     return (
 
         <div>
-                <Nav showDP={false}/>
+                <Nav/>
                 <Center />
                 <Features />
         </div>
