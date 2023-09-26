@@ -3,17 +3,13 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { signIn, signOut } from 'next-auth/react';
 
-const Dropdown = ({ userdata , signInOut}) => {
+const Dropdown = ({ userdata }) => {
     const [isOpen, setIsOpen] = useState(false);
-    
-
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
         console.log("isOpen: ", isOpen);
     };
-
-
-    if (userdata.data === undefined) {
+    if (userdata === undefined) {
         return (
             <a href="#" className="btn btn-outline-light justify-content-end"
                 onClick={() => signIn()}
@@ -27,7 +23,7 @@ const Dropdown = ({ userdata , signInOut}) => {
                     className="btn text-white"
                     onClick={toggleDropdown}
                 >
-                    {userdata.data.user.image === null ? (
+                    {userdata.user.image === null ? (
                         <img
                             src="/images/profile.jpg"
                             style={{ borderRadius: '50%' }}
@@ -39,7 +35,7 @@ const Dropdown = ({ userdata , signInOut}) => {
                     ) : 
 
                     <img
-                        src={userdata.data.user.image}
+                        src={userdata.user.image}
                         style={{ borderRadius: '50%' }}
                         width="46"
                         height="46"
@@ -51,7 +47,7 @@ const Dropdown = ({ userdata , signInOut}) => {
                 </button>
                 {isOpen && (
                     <div className={styles.dropdownMenu + ' ' + styles.show}>
-                        <a className={styles['dropdown-item']}>{userdata.data.user.name}</a>
+                        <a className={styles['dropdown-item']}>{userdata.user.name}</a>
                         <div className={styles['dropdown-divider']}></div>
                         <a className={styles['dropdown-item']} onClick={() => signOut()}
                         >Sign Out</a>

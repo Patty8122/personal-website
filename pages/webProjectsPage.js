@@ -6,10 +6,10 @@ import Link from 'next/link';
 
 class ExperiencePageDisplay extends Component {
   render() {
+    console.log("this.props.query: ", this.props.query);
     return (
       <div className="container-fluid pt-5 pb-0 mb-3 mt-3">
-        <Nav />
-        {/* add small empty space */}
+        <Nav userdata={this.props.query} />
         <h1 className="mt-3 text-center">Web Development Projects</h1>
         <div className="row justify-content-center">
           {experiences.map((experience, index) => (

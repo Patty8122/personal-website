@@ -8,7 +8,7 @@ import Dropdown from './dropdown';
 import { signOut } from 'next-auth/react';
 
 
-const Nav = (userdata) => {
+const Nav = ({userdata, showUser}) => {
 
     if (userdata === undefined) {
         return (
@@ -16,9 +16,9 @@ const Nav = (userdata) => {
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm p-0 m-0">
                     <div className="container-fluid" justify-content="space-between">
                         <Link className="navbar-brand" href={{ pathname: '/landingPage', query: userdata }}>
-                            <Image src="/images/logo_white.png" width="216" height="46" alt="" className="d-inline-block align-middle mr-2" />
+                            <Image src="/images/easy3.png" width="60" height="20" alt="" className="d-inline-block align-middle mr-2" />
                         </Link>
-
+                        <Dropdown />
                     </div>
                 </nav>
             </div>
@@ -35,9 +35,6 @@ const Nav = (userdata) => {
                             Divya Pattisapu
                         </Link>
                         <Dropdown userdata={userdata} />
-                        
-
-
                     </div>
                 </nav>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.5.0/js/bootstrap.bundle.min.js"></script>
