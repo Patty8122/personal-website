@@ -45,9 +45,14 @@ const ChecklistPage = (({ checklist_names_ }) => {
             setUserName(session.data.user.name);
             // setChecklistRequest(checklist_names_);
             console.log("checklist_names_: ", checklist_names_);
-            fetchChecklist();
+            
         }
     }, [session.status === "authenticated"]);
+
+
+    //use effect to fetch checklist from database once the page is refreshed
+    
+    
 
 
     // Function to append a new name to the checklist_names state

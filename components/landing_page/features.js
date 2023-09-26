@@ -23,7 +23,7 @@ const Features = (userdata) => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-sm-2">
+                    <div className="col-sm-2 p-2">
                         <div className="card white h-100">
                             <div className="card-body" >
                                 <div className="row justify-content-center">
@@ -41,7 +41,7 @@ const Features = (userdata) => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-sm-2">
+                    <div className="col-sm-2 p-2">
                         <div className="card white h-100">
                             <div className="card-body">
                                 <div className="row justify-content-center">
@@ -59,7 +59,7 @@ const Features = (userdata) => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-sm-2">
+                    <div className="col-sm-2 p-2">
                         <div className="card white h-100">
                             <div className="card-body">
                                 <div className="row justify-content-center">
@@ -77,7 +77,7 @@ const Features = (userdata) => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-sm-2">
+                    <div className="col-sm-2 p-2">
                         <div className="card white h-100">
                             <div className="card-body">
                                 <div className="row justify-content-center">
