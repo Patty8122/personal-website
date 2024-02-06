@@ -1,9 +1,6 @@
 {
   "homepage": "https://agile-beyond-50944-28ae32cac84a.herokuapp.com/",
   "private": true,
-  "engines": {
-    "node": "20"
-  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
