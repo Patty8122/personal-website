@@ -24,6 +24,8 @@ const Center = () => {
             }
         }
 
+      
+
         window.addEventListener('keydown', handleEsc)
         window.addEventListener('click', handleClickOutside)
 
@@ -33,19 +35,48 @@ const Center = () => {
         }
     }, [])
 
+    const handleModalClick = () => {
+        // Toggle the modal state when the modal is clicked
+        setIsOpen(true);
+
+        // Get the modal element
+        
+        if (isOpen) {
+          // Get the height of the navbar when the modal is opened
+          var navbarHeight = document.querySelector('.navbar');
+
+          if (navbarHeight) {
+            // Set the margin-top for the modal
+            navbarHeight = navbarHeight.clientHeight + 20;
+            document.querySelector('.ReactModal__Overlay').style.marginTop = navbarHeight + 'px';
+          }
+    
+        }
+      };
 
 
 
     return (
-        <div className="container-fluid pt-5 pb-0 mb-3 mt-3">
+        <div className="container-fluid pt-5 pb-0 mb-0 mt-3">
             <div className="row align-items-center justify-content-center">
-                <div className="col-sm-6 order-last ">
-                    <h1 className={styles.headers}> Hi, I'm Divya!</h1>
-                    <h5 className={styles.headers}>I am passionate about building software products, efficient in performance and fun!</h5>
-                    <h5 className={styles.headers}>Excited to attend Grace Hopper Celebration 2023 in Orlando :D</h5>
+                <div className="col-sm-6 order-last pt-2">
+                    <h1 className={styles.headers + " justify-content-center"}> 
+                    <span> Hi, I'm Divya! </span>
+                    <span className={styles.blogTitleEmoji}>👋</span>  </h1> 
+                    {/* add emoji wave */}
+                    <br />
+                    <h5 className={styles.headers + " justify-content-center"}> 
+                        I'm currently a student at the University of Chicago, majoring Computer Science.
+                        <br />
+                        I specialize in full-stack development, data science, and machine learning. 
+                    </h5>
+                    {/* <h5 className={styles.headers}>API, Bootstrap, C++, Docker, ES6, Figma, GoLang, HiveQL, Impala, JavaScript!</h5> */}
+                    
+
+
                     <div className={"row " + styles.centerContent}>
                         <div className="col-6 ">
-                            <button type="button" className={"btn btn-secondary  mt-4 " + styles.Resume} onClick={() => setIsOpen(true)}>Check Out My Resume</button>
+                            <button type="button" className={"btn btn-secondary  mt-4 mb-4 " + styles.Resume} onClick={handleModalClick}>Check Out My Resume</button>
                             <Modal styles={styles.customModalStyles} isOpen={isOpen} onRequestClose={() => setIsOpen(false)}>
                                 <div className={"row align-items-between "}>
                                     <div className="col-11">

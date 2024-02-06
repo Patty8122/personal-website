@@ -160,22 +160,20 @@ class CoursePageDisplay extends Component {
     },
 
     {
-        title: 'Big Data Application Architecture',
-        image: '/images/aws.jpeg',
+        title: 'Topics in Software Engineering',
+        image: '/images/docker.png',
         details: [
-            'Overview of Big Data',
-            'Lambda architecture',
-            'Data model/storage',
-            'Batch layer',
-            'Serving layer',
-            'Speed layer',
-            'Technologies including Hadoop/Spark/Hive/HBase and other NoSQL databases/Thrift/Zookeeper etc.',
-            'Scraping and cleaning data',
+            'Software Design using the Unified Modeling Language notation',
+            'Microservices Architecture',
+            'Continuous Integration and Continuous Deployment',
+            'RESTful API design and testing',
+            'Software Development Lifecycle integrating Agile methodologies',
+            'Containerization',
         ],
     },
 
     {
-        title: 'Parallel Programming (Fall 2023)',
+        title: 'Parallel Programming',
         image: '/images/aws.jpeg',
         details: [
             'Processes and threads',
@@ -190,6 +188,25 @@ class CoursePageDisplay extends Component {
             'Additional topics dependent on student request and time',
         ],
     },
+
+    {
+      title: "Distributed Systems",
+      image: '/images/aws.jpeg',
+      details: [
+        'Distributed architectures',
+        'Processes and threads',
+        'Networking and communication mechanisms',
+        'Naming and mapping',
+        'Synchronization',
+        'Distributed time and ordering',
+        'Consistency',
+        'Fault tolerance',
+        'Distributed consensus',
+        'Distributed data',
+        'Data intensive computing',
+      ],
+
+    }
 
 
 ];

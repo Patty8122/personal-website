@@ -23,6 +23,23 @@
 
 }
 
+.blogTitleEmoji {
+    animation-name: wave-animation;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+    transform-origin: 70% 70%;
+    display: inline-block;
+}
+
+@keyframes wave-animation {
+    0% { transform: rotate(0deg); }
+    20% { transform: rotate(-5deg); }
+    40% { transform: rotate(5deg); }
+    60% { transform: rotate(-5deg); }
+    80% { transform: rotate(5deg); }
+    100% { transform: rotate(0deg); }
+}
+
 .imgCustom {
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     /* align image to the right */
@@ -132,7 +149,6 @@
 }
 
 .customModalStyles{
-    /* add a padding */
     position: fixed;
     margin-top: 7.5%;
 }
