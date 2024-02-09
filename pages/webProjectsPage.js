@@ -2,6 +2,7 @@ import Nav from '../components/landing_page/nav';
 import styles from '../styles/webProjectsPage.module.css';
 import React, { Component } from 'react';
 import Link from 'next/link';
+import VideoPlayer from '../components/videoPlayer';
 
 
 class ExperiencePageDisplay extends Component {
@@ -28,6 +29,10 @@ class ExperiencePageDisplay extends Component {
                       </ul>
                       {experience.link && experience.link !== "" && <Link className="btn btn-primary" href={{ pathname: experience.link, query: this.props.query }}> Click Here To Visit Checklist Website </Link>}
 
+                      {experience.video && <div className="flex flex-col items-center justify-center">
+                      <VideoPlayer />
+                      </div>}
+
                       <img src={experience.image} alt="" className={styles.featureImages} />
                       {experience.image2 && <img src={experience.image2} alt="" className={styles.featureImages} /> }
                     </div>
@@ -51,6 +56,15 @@ export default ExperiencePageDisplay;
 
 
 const experiences = [
+  {
+    title: 'Auction Website',
+    video: '/videos/auction_website.mp4',
+    details: [
+      'Designed and implemented an eBay-modeled auction website, handling user authentication and bidding functionalities within a team of 5',
+      'Streamlined microservices integration using mediator service, ensuring seamless communication and robust integration via unit testing',
+      'Developed a full stack auction website for autonomy development workflows, incorporating frontend (React.js), API layer, database ORM (SQLAlchemy) to enable product features, RabbitMQ for communication and Docker for containerization.',
+    ],
+  },
   {
     title: 'AI Checklist Application',
     image: '/images/AIchecklists.png',

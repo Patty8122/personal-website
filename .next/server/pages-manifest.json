@@ -2,10 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js",
-  "/mlProjectsPage": "pages/mlProjectsPage.js",
-  "/landingPage": "pages/landingPage.js",
   "/webProjectsPage": "pages/webProjectsPage.js",
-  "/hpcProjectsPage": "pages/hpcProjectsPage.js",
+  "/checklistPage": "pages/checklistPage.js",
   "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js"
 }

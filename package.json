@@ -1,9 +1,6 @@
 {
   "homepage": "https://agile-beyond-50944-28ae32cac84a.herokuapp.com/",
   "private": true,
-  "engines": {
-    "node": "20.x"
-  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -24,6 +21,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
     "react-modal": "^3.16.1",
+    "react-player": "^2.14.1",
     "tailwindcss": "^3.4.1"
   },
   "devDependencies": {
