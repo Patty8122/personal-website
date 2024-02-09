@@ -66,7 +66,7 @@ const Center = () => {
                     {/* add emoji wave */}
                     <br />
                     <h5 className={styles.headers + " justify-content-center"}> 
-                        I'm currently a student at the University of Chicago, majoring Computer Science.
+                        I'm currently a Masters student at the University of Chicago, majoring in Computer Science.
                         <br />
                         I specialize in full-stack development, data science, and machine learning. 
                     </h5>
