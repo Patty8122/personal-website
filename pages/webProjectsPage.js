@@ -33,8 +33,13 @@ class ExperiencePageDisplay extends Component {
                       <VideoPlayer />
                       </div>}
 
-                      <img src={experience.image} alt="" className={styles.featureImages} />
-                      {experience.image2 && <img src={experience.image2} alt="" className={styles.featureImages} /> }
+                      {experience.image && !experience.image2 && <img src={experience.image} alt="" className={styles.featureImages} /> }
+
+                      {experience.image2 && 
+                      <div className="flex flex-row items-center justify-center">
+                        <img src={experience.image} alt="" className={styles.featureImages} width="50%" />
+                        <img src={experience.image2} alt="" className={styles.featureImages} width="50%"/>
+                        </div> }
                     </div>
                   </div>
                   <div className="row justify-content-center align-items-center">

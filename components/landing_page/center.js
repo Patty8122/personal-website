@@ -57,7 +57,7 @@ const Center = () => {
 
 
     return (
-        <div className="container-fluid pt-5 pb-0 mb-0 mt-3">
+        <div className={"container-fluid pt-5 pb-0 mb-0 mt-3" + styles.expandElement}>
             <div className="row align-items-center justify-content-center">
                 <div className="col-sm-6 order-last pt-2">
                     <h1 className={styles.headers + " justify-content-center"}> 

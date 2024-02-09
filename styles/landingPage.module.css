@@ -1,3 +1,7 @@
 .main {
-    display: inline;    
-}
+    display: flex;    
+    height: 100vh;
+    flex-direction: column;
+} 
+
+/* feature should occupy the remaining screen - nav, main and feature are 3 flex boxes on the screen*/

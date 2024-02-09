@@ -33,3 +33,7 @@
     margin: 5px 10px;
     font-size: 30px; 
 }
+
+.feature{
+    flex: 1;    
+}

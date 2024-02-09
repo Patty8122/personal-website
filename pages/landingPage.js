@@ -8,9 +8,9 @@ import { FaLinkedin } from 'react-icons/fa';
 const landing_page_display = () => {
     return (
             <div className={"container-fluid m-0 p-0 " + styles.main}>
-                    <Nav showDP={true}/>
-                    <Center />
-                    <Features />
+                <Nav showDP={true}/>
+                <Center />
+                <Features />
             </div>
     )
 

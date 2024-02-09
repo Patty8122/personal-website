@@ -4,5 +4,6 @@
   "/_document": "pages/_document.js",
   "/webProjectsPage": "pages/webProjectsPage.js",
   "/checklistPage": "pages/checklistPage.js",
+  "/": "pages/index.js",
   "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js"
 }
