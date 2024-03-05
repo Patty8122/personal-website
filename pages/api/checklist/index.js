@@ -1,13 +1,11 @@
 import { check_list } from '../../../data/checklist';
-import { OpenAIApi, Configuration } from "openai";
+import OpenAI from "openai";
 
 
-const configuration = new Configuration({
+
+const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
-
-const openai = new OpenAIApi(configuration);
-
 
 const runPrompt = async (prompt) => {
 
@@ -15,18 +13,26 @@ const runPrompt = async (prompt) => {
   // console.log("prompt: ", prompt);
 
 
-  const response = await openai.createCompletion({
-    model: "text-davinci-003",
-    prompt: prompt + " in a single line",
-    max_tokens: 1000,
-    // temperature: 1, // random if > 1
+  const response = await client.chat.completions.create({
+    model: "gpt-3.5-turbo",
+    messages: [
+      {
+        role: 'system',
+        content: 'You are a helpful assistant'
+      },
+      {
+        role: 'user',
+        content: prompt + ' in a single line'
+      }
+    ],
+    stream: false,
   });
-
   // console.log(response.data);
   // console.log(response.data.choices);
   // console.log(response.data.choices[0]);
+  console.log("RESPONSE: ", response.choices[0].message.content);
 
-  return response.data.choices[0].text;
+  return response.choices[0].message.content;
 }
 
 
