@@ -8,11 +8,6 @@ const client = new OpenAI({
 });
 
 const runPrompt = async (prompt) => {
-
-  // add role as a message to send to openai
-  // console.log("prompt: ", prompt);
-
-
   const response = await client.chat.completions.create({
     model: "gpt-3.5-turbo",
     messages: [
@@ -27,11 +22,30 @@ const runPrompt = async (prompt) => {
     ],
     stream: false,
   });
-  // console.log(response.data);
-  // console.log(response.data.choices);
-  // console.log(response.data.choices[0]);
   console.log("RESPONSE: ", response.choices[0].message.content);
+  return response.choices[0].message.content;
+}
 
+const runPromptSubTask = async (prompt, prompt_number) => {
+  if (prompt_number === undefined) {
+    prompt_number = 15;
+  }
+  console.log('prompt_number: ', prompt_number)
+  const response = await client.chat.completions.create({
+    model: "gpt-3.5-turbo",
+    messages: [
+      {
+        role: 'system',
+        content: 'You are a helpful assistant'
+      },
+      {
+        role: 'user',
+        content: prompt + ' whose time taken adds up to the total time of ' + prompt_number.toString() + ' in a single line'
+      }
+    ],
+    stream: false,
+  });
+  console.log("RESPONSE: ", response.choices[0].message.content);
   return response.choices[0].message.content;
 }
 
@@ -108,44 +122,44 @@ async function insertDocument(doc, id_parent) {
   // if the document has a parent then it is a subtask
 
   if (false //id_parent === undefined
-    ) {
+  ) {
     console.log('insertDocument id_parent is EMPTY: ', id_parent)
 
-  try {
-    const newDocument = new YourModel({
-      email: doc.email,
-      name: doc.name,
-      tasklist: doc.tasklist,
-    });
-
-    // console.log("85 newDocument", newDocument)
-
-    await newDocument.save();
-
-    console.log('Document inserted successfully');
-  } catch (error) {
-    console.log('Error inserting document:', error);
-  }
-}
-
-else {
     try {
-        const newDocument = new YourModel({
+      const newDocument = new YourModel({
+        email: doc.email,
+        name: doc.name,
+        tasklist: doc.tasklist,
+      });
+
+      // console.log("85 newDocument", newDocument)
+
+      await newDocument.save();
+
+      console.log('Document inserted successfully');
+    } catch (error) {
+      console.log('Error inserting document:', error);
+    }
+  }
+
+  else {
+    try {
+      const newDocument = new YourModel({
         email: doc.email,
         name: doc.name,
         tasklist: doc.tasklist,
         id_parent: id_parent,
-        });
-    
-        // console.log("85 newDocument", newDocument)
-    
-        await newDocument.save();
-    
-        console.log('137 -------- Document inserted successfully');
+      });
+
+      // console.log("85 newDocument", newDocument)
+
+      await newDocument.save();
+
+      console.log('137 -------- Document inserted successfully');
     } catch (error) {
-        console.log('Error inserting document:', error);
+      console.log('Error inserting document:', error);
     }
-}
+  }
   await disconnectDB();
 }
 
@@ -162,36 +176,46 @@ export default async function handler(req, res) {
     }
 
     const body = req.body
-    console.log('body: ', body)
-      
 
     // make a call to openai
-    let final_request = 'Please make a checklist for ' + body.checklist_request + ' with a timeline in the form of a JSON parsable string of the format keys as \{"name":"title", "tasklist": \{"task": time to complete task\}\}.'
-    console.log('final_request: ', final_request);
+    var final_request = 'Please make a checklist for ' + body.checklist_request + ' with a timeline in the form of a JSON parsable string of the format keys as \{"name":"title", "tasklist": \{"task": time to complete task\}\}.'
 
-    // while loop to keep trying to get a parsable response
-    while (true) {
-      const response = await runPrompt(final_request);
-      try {
-        var cleanedResponse = cleanResponse(response);
-        break;
-      } catch (error) {
-        continue;
+    if (body.subtask !== undefined && body.subtask === true) {
+      final_request = 'Please make a sub checklist for ' + body.checklist_request + ' with a timeline in the form of a JSON parsable string of the format keys as \{"name":"title", "tasklist": \{"task": time to complete task\}\}.'  
+      // while loop to keep trying to get a parsable response
+      while (true) {
+        const response = await runPromptSubTask(final_request, body.time);
+        try {
+          var cleanedResponse = cleanResponse(response);
+          break;
+        } catch (error) {
+          continue;
+        }
+      }
+    }
+    else {
+      // while loop to keep trying to get a parsable response
+      while (true) {
+        const response = await runPrompt(final_request);
+        try {
+          var cleanedResponse = cleanResponse(response);
+          break;
+        } catch (error) {
+          continue;
+        }
       }
     }
 
-
-    // console.log('cleanedResponse: ', cleanedResponse)
 
     // check if id_parent is empty
     if (body.id_parent === undefined) {
       console.log('id_parent is EMPTY: ', body.id_parent)
       await insertDocument({
-      "email": body.email,
-      // "name": cleanedResponse.name,
-      "name": body.checklist_request,
-      "tasklist": cleanedResponse.tasklist,
-    });
+        "email": body.email,
+        // "name": cleanedResponse.name,
+        "name": body.checklist_request,
+        "tasklist": cleanedResponse.tasklist,
+      });
     }
 
     else {
@@ -214,7 +238,7 @@ export default async function handler(req, res) {
     // Send a response back to the client-side
     try {
       res.status(200).json({
-        "message": "Checklist received and processed successfully", 
+        "message": "Checklist received and processed successfully",
         "check_list": {
           // "id": id,
           "email": body.email,
@@ -250,13 +274,13 @@ export default async function handler(req, res) {
       // all documents in the collection YourModel with the email will be returned
       const newDocument = await YourModel.find({ email: email });
       // console.log('Document found', newDocument);
-      res.status(200).json({ "check_list":newDocument })
+      res.status(200).json({ "check_list": newDocument })
     }
     catch (error) {
       console.log('Error searching for document:', error);
       res.status(500).json({});
     }
-    
+
     await disconnectDB();
 
   }

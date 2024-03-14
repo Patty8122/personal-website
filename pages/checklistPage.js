@@ -3,14 +3,10 @@ import { useState } from "react";
 import { useEffect } from 'react';
 import Nav2 from '../components/landing_page/nav2';
 import styles from '../styles/utils.module.css';
-import RootLayout from "./layout";
 import Parent from "../components/checklistParent";
 import { useSession, signIn, signOut } from 'next-auth/react';
 import { connectDB, disconnectDB } from './api/checklist/checklistsModel';
-import { data } from "autoprefixer";
 import { getSession } from "next-auth/react";
-import { set } from "mongoose";
-import LoadingAnimation from "../components/loading";
 
 
 
@@ -29,7 +25,6 @@ const ChecklistPage = (({ checklist_names_ }) => {
 
     useEffect(() => {
         if (checklist_names_.length > 0) {
-
             updateTabNames(checklist_names_);
         }
     }, [checklist_names_]);
@@ -39,59 +34,15 @@ const ChecklistPage = (({ checklist_names_ }) => {
     useEffect(() => {
         console.log("session: ", session);
         if (session && session.data && session.data.user && session.data.user.email) {
-            // console.log("session.data.user.email: ", session.data.user.email);
             setUserEmail(session.data.user.email);
             setUserImage(session.data.user.image);
             setUserName(session.data.user.name);
-            // setChecklistRequest(checklist_names_);
             console.log("checklist_names_: ", checklist_names_);
             
         }
     }, [session.status === "authenticated"]);
 
-
-    //use effect to fetch checklist from database once the page is refreshed
     
-    
-
-
-    // Function to append a new name to the checklist_names state
-    const appendToTabNames = (newName) => {
-        updateTabNames((prevNames) => [...prevNames, newName]);
-    };
-
-
-    // Fetch checklist from database using GET request
-    // React.useEffect(() => {
-    //     const interval = setInterval(() => {
-    //       fetchChecklist();
-    //     }, 500); // Change the interval time (in milliseconds) to your desired value
-
-    //     return () => {
-    //       clearInterval(interval); // Clear the interval when the component is unmounted
-    //     };
-    //   }, [user_email]);
-
-
-      const fetchChecklist = async () => {
-        try {
-          const res = await fetch('/api/checklist', {
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json',
-              email: user_email
-            }
-          });
-          const data = await res.json();
-        } catch (error) {
-            console.log(error);
-            }
-            // update the state of checklist_names
-            updateTabNames(data.check_list);
-
-      };
-
-
     const addChecklist = async (checklist_request) => {
         // update the state of checklist_request
         setChecklistRequest(checklist_request);
@@ -99,21 +50,10 @@ const ChecklistPage = (({ checklist_names_ }) => {
 
     // NEED TO FIX THIS : api call to database to edit tasklist
     const deleteTodo = async (task, id) => {
-
         // for the checklist that the task is in with the id = id
         // , delete the task from the tasklist
         console.log("task: ", task);
         console.log("id: ", id);
-        // const index = checklist_names.findIndex(item => item._id === id);
-        // if (index !== -1) {
-        //     const checklist = checklist_names[index];
-        //     if (checklist.tasklist.hasOwnProperty(task)) {
-        //         delete checklist.tasklist[task];
-        //     }
-        // }
-    
-            
-
 
         updateTabNames(
             checklist_names.map((checklist) => {
@@ -133,29 +73,12 @@ const ChecklistPage = (({ checklist_names_ }) => {
                 task: task,
                 email: user_email,
                 id: id,
-                // checklist_names: checklist_names,
             }),
         });
-        
     }
 
-    const expandTask = async (task, id_parent, user_email) => {
-
-
-        console.log("task: ", task);
-        console.log("id_parent: ", id_parent);
-
-    
-        // updateTabNames(
-        //     checklist_names.map((checklist) => {
-        //         if (checklist.tasklist[task]) {
-        //             delete checklist.tasklist[task];
-        //         }
-        //         return checklist;
-        //     })
-        // );
-        submitChecklistRequest(task, id_parent);
-        
+    const expandTask = async (task, id_parent, time) => {
+        submitChecklistRequest(task, id_parent, time);
     }
 
     const fetchSubtaskList = async (id_parent) => {
@@ -175,23 +98,10 @@ const ChecklistPage = (({ checklist_names_ }) => {
         const datajson = await data.json();
         console.log("datajson.subtasks: ", datajson);
         return datajson.subtasks
-        }
-
-
-        // return data.subtasks.map((subtask) => (
-        //     <div key={subtask._id}>
-        //         <h3>{subtask.name}</h3>
-        //         {subtask.tasklist.map((task) => (
-        //             <p>{task}</p>
-        //         ))}
-        //     </div>
-        // ));
-
-
-
+    }
 
     // adds a new checklist to the database
-    const submitChecklistRequest = async (checklist_request, id_parent) => {
+    const submitChecklistRequest = async (checklist_request, id_parent, total_time) => {
         setLoading(true);
         // Check if checklist_request is empty
         if (checklist_request === '') {
@@ -210,6 +120,8 @@ const ChecklistPage = (({ checklist_names_ }) => {
                 checklist_request: checklist_request,
                 email: user_email,
                 id_parent: id_parent,
+                subtask: true,
+                time: total_time
             })
         }
 
@@ -258,27 +170,12 @@ const ChecklistPage = (({ checklist_names_ }) => {
 
     return (
         <div className="checklistPage">
-
             {data && data.user && console.log("data.user: ", data.user.name)}
             {data && data.user &&
             <Nav2 data={data}/>}
-
-            {!data  && 
-            <Nav2 /> }
-
-            {/* <iframe src="https://giphy.com/embed/3oEjI6SIIHBdRxXI40" width="480" height="480" frameBorder="0" className="giphy-embed" ></iframe> */}
-            {/* <iframe src="https://giphy.com/embed/XEJ8bHp1N9i4OjgLwT" width="480" height="270"></iframe> */}
-            <div className={styles.loading}
-                        style={
-                            loading  ? { display: "block" } : { display: "none" }}
-                    ></div>
-
-
+            {!data  && <Nav2 />}
+            <div className={styles.loading} style={loading  ? { display: "block" } : { display: "none" }}></div>
             <div className="row justify-content-stretch h-100">
-                {/* <div className="col-2 h-100 justify-content-stretch">
-                    <RootLayout />
-                </div> */}
-
                 <div className="col-12 span-all">
                     {session.status === "authenticated" && 
                     <>
@@ -290,7 +187,6 @@ const ChecklistPage = (({ checklist_names_ }) => {
                         submitChecklistRequest(checklist_request);
                         setChecklistRequest('');
                         }}>Add Checklist</button>
-                    {/* <button onClick={fetchChecklist}>Fetch Checklist</button> */}
                     <br />
                     {session.status !== "authenticated" && 
                     <h4 className={styles.heading + " ml-5 ml-sm-3 ml-md-4"}>Sign in to create and save custom checklists! </h4>}
@@ -300,8 +196,8 @@ const ChecklistPage = (({ checklist_names_ }) => {
                         <div className="row p-5 justify-content-left">
                             {console.log("144", checklist_names)}
                             {session.status === "authenticated" && checklist_names &&
-                                <Parent tabs={checklist_names} deleteTodo={deleteTodo} user_email={user_email} fetchSubtaskList={fetchSubtaskList} expandTask={expandTask}/>}
-
+                                <Parent tabs={checklist_names} deleteTodo={deleteTodo} user_email={user_email} fetchSubtaskList={fetchSubtaskList} expandTask={expandTask}/>
+                            }
                         </div>
                     </div>
                 </div>
@@ -407,7 +303,14 @@ async function fetchUpdatedChecklists(user_email) {
     await connectDB();
 
     try {
-        const res = await fetch('http://localhost:3000/api/checklist', {
+        // get url from window.location
+        var url = window.location.href;
+        // get domain from url
+        var domain = url.split('/')[2];
+        if (domain === undefined) {
+            domain = 'divyapattisapu.vercel.app';
+        }
+        const res = await fetch('http://' + domain + '/api/checklist', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -429,25 +332,3 @@ async function fetchUpdatedChecklists(user_email) {
     }
 }
 
-
-
-//         if (data.check_list === undefined) {
-//             console.log('checklist is undefined');
-//             return;
-//         }
-//     } catch (error) {
-//         console.error('Error fetching checklist:', error);
-//     }
-
-
-// // disconnect when there is an error
-// context.res.on('close', () => {
-//     disconnectDB();
-// }
-// );
-
-// return {
-//     props: {
-//         checklist_names: data.check_list || [], // will be passed to the page component as props
-//     },
-// };

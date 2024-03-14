@@ -16,12 +16,7 @@ const   Parent = ({ tabs, deleteTodo, fetchSubtaskList, expandTask }) => {
     const [loading, setLoading] = useState(false);
     console.log("selectedTabsubtasks 1: ", selectedTabsubtasks);
 
-    // useEffect(() => {
-    //     setSelectedTabsubtasks(fetchSubtaskList(selectedTab._id));
-    // }, [selectedTab]);
-
     useEffect(() => {
-        // setSelectedTabsubtasks(fetchSubtaskList(selectedTab._id));
         if (selectedTab) {
             setLoading(true);
             fetchSubtaskList(selectedTab._id).then((res) => {
@@ -32,10 +27,6 @@ const   Parent = ({ tabs, deleteTodo, fetchSubtaskList, expandTask }) => {
             );
         }
     }, [selectedTab, tabs]);
-
-
-
-
 
     return (
         <div className={styles.window}>
@@ -56,11 +47,9 @@ const   Parent = ({ tabs, deleteTodo, fetchSubtaskList, expandTask }) => {
                                                 }
                                                 onClick={() => {
                                                     setSelectedTab(item);
-                                                    // setSelectedTabsubtasks(fetchSubtaskList(item._id));
                                                 }
                                                 }
                                             >
-                                                {/* {`${item.icon} ${item.name}`} */}
                                                 {`${item.name}`}
                                                 {item === selectedTab ? (
                                                     <motion.div className={styles.underline} layoutId="underline" />
@@ -91,10 +80,7 @@ const   Parent = ({ tabs, deleteTodo, fetchSubtaskList, expandTask }) => {
                                     >
                                         {selectedTab && (selectedTab.id_parent === undefined) && ([selectedTab]).map((checklist) => {
                                             {
-                                                // var childlist = fetchSubtaskList(checklist._id);
                                                 var childlist = null;
-                                                // console.log("childlist: ", childlist);
-
                                             }
                                             return (
                                                 <div className="col-12" id={selectedTab._id}>
@@ -114,7 +100,7 @@ const   Parent = ({ tabs, deleteTodo, fetchSubtaskList, expandTask }) => {
                                                                                                     <div className="row justify-content-center">
                                                                                                     <div className="col-1 justify-content-center">
                                                                                                     <button className={styles.circle + " " + styles.plus}
-                                                                                                        onClick={() => { expandTask(task, selectedTab._id, selectedTab.email); 
+                                                                                                        onClick={() => { expandTask(task, selectedTab._id, checklist.tasklist[task]);
                                                                                                                             setLoading(true);
                                                                                                         }}></button>
                                                                                                     </div>
@@ -136,17 +122,11 @@ const   Parent = ({ tabs, deleteTodo, fetchSubtaskList, expandTask }) => {
                                                                                                     })}
                                                                                                     </div>
                                                                                                     </div>
-
-
-
                                                                                                 </div>
 
 
                                                                                             </div>
                                                                                             <div className="form-group mx-sm-3 mb-2 col-2">
-                                                                                                {/* <form className="form-inline">
-                                                                                                    <input type="text" className="form-control" placeholder={checklist.tasklist[task]} />
-                                                                                                </form> */}
                                                                                                 <p>{checklist.tasklist[task]}</p>
                                                                                             </div>
 
