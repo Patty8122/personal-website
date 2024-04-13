@@ -38,10 +38,20 @@ const ChecklistPage = (({ checklist_names_ }) => {
             setUserImage(session.data.user.image);
             setUserName(session.data.user.name);
             console.log("checklist_names_: ", checklist_names_);
-            
         }
     }, [session.status === "authenticated"]);
 
+
+    // wait for the user email to be set
+    useEffect(() => {
+        if (user_email !== undefined) {
+            console.log("user_email: ", user_email);
+
+            // fetch the checklist from the database
+            fetchUpdatedChecklists(user_email);
+        }
+    }
+        , [user_email]);
     
     const addChecklist = async (checklist_request) => {
         // update the state of checklist_request
@@ -242,7 +252,16 @@ export async function getServerSideProps(context) {
             console.log("LINE 175 refresh: ", req.query.refresh);
             return { props: {} }; // Return an empty object as we're using server-sent events for response
         } else {
-            const res = await fetch('http://localhost:3000/api/checklist', {
+            // var url = window.location.href;
+            // var domain = url.split('/')[2];
+            // if (domain === undefined) {
+            //     domain = 'divyapattisapu.vercel.app';
+            // }
+            // console.log("LINE 181 domain: ", domain);
+            // var endpoint = 'http://' + domain + '/api/checklist';
+            var endpoint = 'http://localhost:3000/api/checklist';
+            console.log("LINE 181 endpoint: ", endpoint);
+            const res = await fetch(endpoint, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -300,7 +319,11 @@ async function handleChecklistRefresh(user_email, res) {
 }
 
 async function fetchUpdatedChecklists(user_email) {
+    
+    
     await connectDB();
+
+
 
     try {
         // get url from window.location
@@ -310,6 +333,8 @@ async function fetchUpdatedChecklists(user_email) {
         if (domain === undefined) {
             domain = 'divyapattisapu.vercel.app';
         }
+        console.log("LINE 323  domain: ", domain);
+
         const res = await fetch('http://' + domain + '/api/checklist', {
             method: 'GET',
             headers: {
