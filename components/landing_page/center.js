@@ -68,7 +68,7 @@ const Center = () => {
                     <h5 className={styles.headers + " justify-content-center"}> 
                         I'm a recent Masters in Computer Science graduate from the University of Chicago.
                         <br />
-                        I specialize in Distributed Data Processing, Backend Engineering and Business Analytics. 
+                        I have expertise in navigating the full stack, including backend, frontend, machine learning, and infrastructure! 
                     </h5>
                     {/* <h5 className={styles.headers}>API, Bootstrap, C++, Docker, ES6, Figma, GoLang, HiveQL, Impala, JavaScript!</h5> */}
                     

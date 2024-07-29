@@ -6,7 +6,7 @@ import React, { Component } from 'react';
 class ExperiencePageDisplay extends Component {
   render() {
     return (
-      <div className="container-fluid pt-5 pb-0 mb-3 mt-3">
+      <div className="container-fluid pt-5 pb-0 mb-3 mt-3"  >
         <Nav />
         <h1 className="text-center pt-3">Experience</h1>
         <div className="row justify-content-center">
@@ -49,6 +49,7 @@ export default ExperiencePageDisplay;
 
 
 const experiences = [
+
   {
     title: 'MasterCard',
     image: '/images/mastercard1.jpeg',
@@ -62,11 +63,20 @@ const experiences = [
     ],
   },
   {
+    title: 'Arvist',
+    image: '/images/arvist.png',
+    details: [
+      'ML Engineering Intern',
+      'May 2024 - Present',
+      'I am responsible for deploying computer vision models (object detection, pose, depth, etc.) to edge devices on Docker using OpenVINO. I also build and maintain the backend infrastructure for the ML models, including data pipelines, APIs, and databases. I boosted the mean average precision of the object detection model from 98.3% to 99.5% by balancing the dataset using augmentation techniques'
+    ],  
+  },
+  {
     title: 'University of Chicago Professional Education',
     image: '/images/ucpe.png',
     details: [
       'Data Analytics Intern',
-      'Feb 2023 - Present',
+      'Feb 2023 - Mar 2024',
       'My role was to enhance our organization\'s data-driven decision-making processes. For this, I automated customer segmentation for applicants who declined offers by implementing a KModes model, ensuring our outreach efforts were more targeted and effective. Additionally, I developed a user-friendly GUI that could be customized to cater to the unique needs of each program. On the enrollment front, I ideated and programmed a seamless data import pipeline using the Destiny API in Python, streamlining the student enrollment process. To gauge the effectiveness of our campaigns, I automated the generation of performance reports on LinkedIn, Google, and Facebook using their respective APIs. Furthermore, I took charge of creating, organizing, and optimizing dashboards on Tableau Server, enabling our team to monitor key metrics effortlessly, and I handled custom student data analytics requests efficiently. My work also involved using Decision Tree Classifier and Logistic Classifier models to identify the factors contributing to accepted, denied, or declined applications, helping us refine our admissions strategies.',
     ],
   },
