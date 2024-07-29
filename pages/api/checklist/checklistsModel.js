@@ -7,12 +7,11 @@ const yourSchema = new mongoose.Schema({
     id_parent: String,
 });
 
-const YourModel = mongoose.models.checklists || mongoose.model('checklists', yourSchema);
-
+const YourModel = (mongoose.models && mongoose.models.checklists) || mongoose.model('checklists', yourSchema);
 
 async function connectDB() {
     try {
-        await mongoose.connect('mongodb+srv://divyapattisapu:pwd963@cluster0.qcfhkzf.mongodb.net/tempDB?retryWrites=true&w=majority', {
+        await mongoose.connect(process.env.mongodb_string, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });
